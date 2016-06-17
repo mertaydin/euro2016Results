@@ -175,7 +175,6 @@ foreach ($groups as $_row) {
         <td>Ev Sahibi</td>
         <td>Misafir</td>
         <td>Sonuç</td>
-        <td>İlk Yarı Sonuç</td>
     </tr>
 
     <?php foreach ($today_matches as $index => $row) { ?>
@@ -185,7 +184,6 @@ foreach ($groups as $_row) {
             <td><?php echo $row->homeTeamName; ?></td>
             <td><?php echo $row->awayTeamName; ?></td>
             <td><?php echo isset($row->result->goalsHomeTeam) ? $row->result->goalsHomeTeam : '' . " - " . isset($row->result->goalsAwayTeam) ? $row->result->goalsAwayTeam : '' ?></td>
-            <td><?php echo (isset($row->result->halfTime) ? $row->result->halfTime->goalsHomeTeam : '') . " - " . (isset($row->result->halfTime) ? $row->result->halfTime->goalsAwayTeam : '') ?></td>
         </tr>
     <?php } ?>
 </table>

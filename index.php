@@ -46,16 +46,10 @@
 <?php
 include_once "base.php";
 
-$cachedosyasi = "caches/".convertToSef($_SERVER['REQUEST_URI']).".mrt";
-if (file_exists($cachedosyasi) && (time() - 180 < filemtime($cachedosyasi))) {
-    include($cachedosyasi);
-    exit;
-}
-ob_start();
+
 
 $teams_data = getFootBallData("teams");
 $teams = array();
-
 
 foreach ($teams_data->teams as $row) {
     $teams[$row->name]['name'] = $row->name;
@@ -65,6 +59,7 @@ foreach ($teams_data->teams as $row) {
     $teams[$row->name]["fixtures"] = $row->_links->fixtures->href;
     $teams[$row->name]["players"] = $row->_links->players->href;
 }
+
 
 $groups_data = getFootBallData("leagueTable");
 $groups= array();
@@ -94,6 +89,14 @@ foreach ($teams as $row) {
         }
     }
 }
+
+
+$cachedosyasi = "caches/".convertToSef($_SERVER['REQUEST_URI']).".mrt";
+if (file_exists($cachedosyasi) && (time() - 180 < filemtime($cachedosyasi)) && !count($teams) > 0 ) {
+    include($cachedosyasi);
+    exit;
+}
+ob_start();
 
 ?>
 

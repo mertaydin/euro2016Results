@@ -5,8 +5,8 @@
  * Date: 17.6.2016
  */
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+/*error_reporting(E_ALL);
+ini_set('display_errors', 1);*/
 
 define("BASE_DOMAIN", "http://api.football-data.org/v1/soccerseasons/424/");
 define("API_KEY", "YOUR-API-KEY");
@@ -25,7 +25,7 @@ function getFootBallData($api_postfix = null, $full_url=null)
     $reqPrefs['http']['method'] = 'GET';
     $reqPrefs['http']['header'] = 'X-Auth-Token: ' . API_KEY;
     $stream_context = stream_context_create($reqPrefs);
-    $response = file_get_contents($uri, false, $stream_context);
+    $response = @file_get_contents($uri, false, $stream_context);
     $fixtures = json_decode($response);
     return $fixtures;
 }

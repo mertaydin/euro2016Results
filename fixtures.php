@@ -58,8 +58,8 @@ foreach ($data->fixtures as $index => $row) {
     <tr>
         <td><?php echo date('d-m-Y H:i', strtotime($row['date'])); ?></td>
         <td><?php echo $time_params[$row['status']]; ?></td>
-        <td><?php echo $row['homeTeamName']; ?></td>
-        <td><?php echo $row['awayTeamName']; ?></td>
+        <td><?php echo $teams_array[$row['homeTeamName']]; ?></td>
+        <td><?php echo $teams_array[$row['awayTeamName']]; ?></td>
         <td><?php echo $row["result"]["goalsHomeTeam"] . " - " . $row["result"]["goalsAwayTeam"] ?></td>
         <td><?php echo $row["result"]["halfTime"]["goalsHomeTeam"] . " - " . $row["result"]["halfTime"]["goalsAwayTeam"] ?></td>
     </tr>

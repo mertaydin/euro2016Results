@@ -26,7 +26,7 @@ include_once "base.php";
 $data = getFootBallData(null, $_GET['url']);
 
 echo '<h1> Takım Adı</h1>';
-echo $data->name;
+echo $teams_array[$data->name];
 echo "<br>";
 echo '<h1> Takım Bayrağı</h1>';
 echo '<img width="150" height="150" src="' . $data->crestUrl . '">';

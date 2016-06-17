@@ -157,7 +157,7 @@ foreach ($groups as $_row) {
         echo '<tr style="text-align: center;">';
         echo '<td><img width="30" height="30" src="' . $__row['crestURI'] . '"></td>';
         echo '<td>' . $__row['rank']. '</td>';
-        echo '<td>' . $__row['team'] . '</td>';
+        echo '<td>' . $teams_array[$__row['team']] . '</td>';
         echo '<td>' . $__row['playedGames'] . '</td>';
         echo '<td>' . $__row['goals'] . '</td>';
         echo '<td>' . $__row['goalsAgainst'] . '</td>';
@@ -189,8 +189,8 @@ foreach ($groups as $_row) {
         <tr>
             <td><?php echo date('d-m-Y H:i', strtotime($row->date)); ?></td>
             <td><?php echo $time_params[$row->status]; ?></td>
-            <td><?php echo $row->homeTeamName; ?></td>
-            <td><?php echo $row->awayTeamName; ?></td>
+            <td><?php echo $teams_array[$row->homeTeamName]; ?></td>
+            <td><?php echo $teams_array[$row->awayTeamName]; ?></td>
             <td><?php echo $row->result->goalsHomeTeam . " - " . $row->result->goalsAwayTeam  ?></td>
         </tr>
     <?php } ?>
@@ -209,7 +209,7 @@ foreach ($teams as $row) {
     echo '<div class="container floatLeft">';
     echo '<div class="team-box floatLeft">';
     echo '<div class="name">';
-    echo $row['name'];
+    echo $teams_array[$row['name']];
     echo '</div>';
     echo '<div class="flag">';
     echo '<img width="75" height="75" src="' . $row['flag'] . '">';

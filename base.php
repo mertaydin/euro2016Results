@@ -14,6 +14,20 @@ define("API_KEY", "YOUR-API-KEY");
 
 $group_letters = array('A', 'B', 'C', 'D', 'E', 'F');
 $time_params = array("FINISHED" => "Tamamlandı", "TIMED" => "Oynanmadı", "IN_PLAY" => "Oynanıyor");
+$teams_array = array(
+    'France' => 'Fransa',                   'Romania' => 'Romanya',
+    'Albania' => 'Arnavutluk',              'Switzerland' => 'İsviçre',
+    'Wales' => 'Galler',                    'Slovakia' => 'Slovakya',
+    'England' => 'İngiltere',               'Russia' => 'Rusya',
+    'Turkey' => 'Türkiye',                  'Croatia' => 'Hırvatistan',
+    'Poland' => 'Polonya',                  'Northern Ireland' => 'Kuzey İrlanda',
+    'Germany' => 'Almanya',                 'Ukraine' => 'Ukrayna',
+    'Spain' => 'İspanya',                   'Czech Republic' => 'Çek Cumhuriyeti',
+    'Republic of Ireland' => 'İrlanda',     'Sweden' => 'İsveç',
+    'Belgium' => 'Belçika',                 'Italy' => 'İtalya',
+    'Austria' => 'Avusturya',               'Hungary' => 'Macaristan',
+    'Portugal' => 'Portekiz',               'Iceland' => 'İzlanda',
+);
 
 function getFootBallData($api_postfix = null, $full_url=null)
 {

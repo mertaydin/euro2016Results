@@ -13,7 +13,7 @@ define("API_KEY", "YOUR-API-KEY");
 
 
 $group_letters = array('A', 'B', 'C', 'D', 'E', 'F');
-$time_params = array("FINISHED" => "Tamamlandı", "TIMED" => "Oynanmadı");
+$time_params = array("FINISHED" => "Tamamlandı", "TIMED" => "Oynanmadı", "IN_PLAY" => "Oynanıyor");
 
 function getFootBallData($api_postfix = null, $full_url=null)
 {

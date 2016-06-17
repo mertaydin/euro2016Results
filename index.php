@@ -195,7 +195,7 @@ foreach ($teams as $row) {
             echo '<img width="75" height="75" src="' . $row['flag'] . '">';
         echo '</div>';
         echo '<div class="links">';
-            echo '<a href="teams.php?url=' . $row['selfUrl'] .'">Takım URL</a><br>';
+            echo '<a href="team.php?url=' . $row['selfUrl'] .'">Takım URL</a><br>';
             echo '<a href="fixtures.php?url=' . $row['fixtures'] .'">Fikstür URL</a><br>';
             echo '<a href="players.php?url=' . $row['players'] .'">Oyuncular URL</a>';
         echo '</div>';

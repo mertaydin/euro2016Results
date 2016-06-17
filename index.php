@@ -191,7 +191,7 @@ foreach ($groups as $_row) {
             <td><?php echo $time_params[$row->status]; ?></td>
             <td><?php echo $row->homeTeamName; ?></td>
             <td><?php echo $row->awayTeamName; ?></td>
-            <td><?php echo isset($row->result->goalsHomeTeam) ? $row->result->goalsHomeTeam : '' . " - " . isset($row->result->goalsAwayTeam) ? $row->result->goalsAwayTeam : '' ?></td>
+            <td><?php echo $row->result->goalsHomeTeam . " - " . $row->result->goalsAwayTeam  ?></td>
         </tr>
     <?php } ?>
 </table>

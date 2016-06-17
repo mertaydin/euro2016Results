@@ -1,0 +1,41 @@
+<br />
+<b>Warning</b>:  file_get_contents(http://api.football-data.org/v1/soccerseasons/424/teams): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in <b>/vagrant/Web/public/euro2016/base.php</b> on line <b>24</b><br />
+<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>/vagrant/Web/public/euro2016/index.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  Invalid argument supplied for foreach() in <b>/vagrant/Web/public/euro2016/index.php</b> on line <b>60</b><br />
+<br />
+<b>Warning</b>:  file_get_contents(http://api.football-data.org/v1/soccerseasons/424/leagueTable): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in <b>/vagrant/Web/public/euro2016/base.php</b> on line <b>24</b><br />
+<br />
+<b>Notice</b>:  Trying to get property of non-object in <b>/vagrant/Web/public/euro2016/index.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Invalid argument supplied for foreach() in <b>/vagrant/Web/public/euro2016/index.php</b> on line <b>71</b><br />
+
+
+<h2 class="center">Gruplar</h2>
+
+<div class="clear"></div>
+
+<h2 class="center">Bu güne ait maçlar</h2>
+<table border="1">
+    <tr>
+        <td>Tarih</td>
+        <td>Durum</td>
+        <td>Ev Sahibi</td>
+        <td>Misafir</td>
+        <td>Sonuç</td>
+        <td>İlk Yarı Sonuç</td>
+    </tr>
+
+    </table>
+<a href="/euro2016">Ana sayfa</a>
+<div class="clear"></div>
+
+
+<h2 class="center">Takımlar</h2>
+
+
+</body>
+</html>

@@ -62,30 +62,35 @@ include_once "base.php";
 $teams_data = getFootBallData("teams");
 $teams = array();
 
-foreach ($teams_data->teams as $row) {
-    $teams[$row->name]['name'] = $row->name;
-    $teams[$row->name]['code'] = $row->code;
-    $teams[$row->name]['flag'] = $row->crestUrl;
-    $teams[$row->name]["selfUrl"] = $row->_links->self->href;
-    $teams[$row->name]["fixtures"] = $row->_links->fixtures->href;
-    $teams[$row->name]["players"] = $row->_links->players->href;
+if (count($teams_data)) {
+    foreach ($teams_data->teams as $row) {
+        $teams[$row->name]['name'] = $row->name;
+        $teams[$row->name]['code'] = $row->code;
+        $teams[$row->name]['flag'] = $row->crestUrl;
+        $teams[$row->name]["selfUrl"] = $row->_links->self->href;
+        $teams[$row->name]["fixtures"] = $row->_links->fixtures->href;
+        $teams[$row->name]["players"] = $row->_links->players->href;
+    }
 }
 
 
 $groups_data = getFootBallData("leagueTable");
 $groups= array();
-foreach ($groups_data->standings as $row) {
-    foreach ($row as $index => $_row) {
-        $groups[$_row->group][$index]["group"] = $_row->group;
-        $groups[$_row->group][$index]["rank"] = $_row->rank;
-        $groups[$_row->group][$index]["team"] = $_row->team;
-        $groups[$_row->group][$index]["teamId"] = $_row->teamId;
-        $groups[$_row->group][$index]["playedGames"] = $_row->playedGames;
-        $groups[$_row->group][$index]["crestURI"] = $_row->crestURI;
-        $groups[$_row->group][$index]["points"] = $_row->points;
-        $groups[$_row->group][$index]["goals"] = $_row->goals;
-        $groups[$_row->group][$index]["goalsAgainst"] = $_row->goalsAgainst;
-        $groups[$_row->group][$index]["goalDifference"] = $_row->goalDifference;
+if (count($groups_data))
+{
+    foreach ($groups_data->standings as $row) {
+        foreach ($row as $index => $_row) {
+            $groups[$_row->group][$index]["group"] = $_row->group;
+            $groups[$_row->group][$index]["rank"] = $_row->rank;
+            $groups[$_row->group][$index]["team"] = $_row->team;
+            $groups[$_row->group][$index]["teamId"] = $_row->teamId;
+            $groups[$_row->group][$index]["playedGames"] = $_row->playedGames;
+            $groups[$_row->group][$index]["crestURI"] = $_row->crestURI;
+            $groups[$_row->group][$index]["points"] = $_row->points;
+            $groups[$_row->group][$index]["goals"] = $_row->goals;
+            $groups[$_row->group][$index]["goalsAgainst"] = $_row->goalsAgainst;
+            $groups[$_row->group][$index]["goalDifference"] = $_row->goalDifference;
+        }
     }
 }
 
@@ -93,10 +98,13 @@ $today_matches = array();
 foreach ($teams as $row) {
     $data = getFootBallData(null, $row['fixtures']);
 
-    foreach ($data->fixtures as $_row) {
-        if (strtotime(date('d-m-Y')) == strtotime(date('d-m-Y', strtotime($_row->date))))
-        {
-            $today_matches[$_row->homeTeamName.$_row->awayTeamName] = $_row;
+    if (count($data))
+    {
+        foreach ($data->fixtures as $_row) {
+            if (strtotime(date('d-m-Y')) == strtotime(date('d-m-Y', strtotime($_row->date))))
+            {
+                $today_matches[$_row->homeTeamName.$_row->awayTeamName] = $_row;
+            }
         }
     }
 }
@@ -146,15 +154,15 @@ foreach ($groups as $_row) {
     echo '<td>Puan</td>';
     echo '</tr>';
     foreach ($_row as $__row) {
-            echo '<tr style="text-align: center;">';
-                echo '<td><img width="30" height="30" src="' . $__row['crestURI'] . '"></td>';
-                echo '<td>' . $__row['rank']. '</td>';
-                echo '<td>' . $__row['team'] . '</td>';
-                echo '<td>' . $__row['playedGames'] . '</td>';
-                echo '<td>' . $__row['goals'] . '</td>';
-                echo '<td>' . $__row['goalsAgainst'] . '</td>';
-                echo '<td>' . $__row['goalDifference'] . '</td>';
-                echo '<td>' . $__row['points'] . '</td>';
+        echo '<tr style="text-align: center;">';
+        echo '<td><img width="30" height="30" src="' . $__row['crestURI'] . '"></td>';
+        echo '<td>' . $__row['rank']. '</td>';
+        echo '<td>' . $__row['team'] . '</td>';
+        echo '<td>' . $__row['playedGames'] . '</td>';
+        echo '<td>' . $__row['goals'] . '</td>';
+        echo '<td>' . $__row['goalsAgainst'] . '</td>';
+        echo '<td>' . $__row['goalDifference'] . '</td>';
+        echo '<td>' . $__row['points'] . '</td>';
     }
     echo '</tr>';
     echo '</table>';
@@ -202,17 +210,17 @@ foreach ($teams as $row) {
     echo '<div class="team-box floatLeft">';
     echo '<div class="name">';
     echo $row['name'];
-        echo '</div>';
-        echo '<div class="flag">';
-            echo '<img width="75" height="75" src="' . $row['flag'] . '">';
-        echo '</div>';
-        echo '<div class="links">';
-            echo '<a href="team.php?url=' . $row['selfUrl'] .'">Takım URL</a><br>';
-            echo '<a href="fixtures.php?url=' . $row['fixtures'] .'">Fikstür URL</a><br>';
-            echo '<a href="players.php?url=' . $row['players'] .'">Oyuncular URL</a>';
-        echo '</div>';
     echo '</div>';
-echo '</div>';
+    echo '<div class="flag">';
+    echo '<img width="75" height="75" src="' . $row['flag'] . '">';
+    echo '</div>';
+    echo '<div class="links">';
+    echo '<a href="team.php?url=' . $row['selfUrl'] .'">Takım URL</a><br>';
+    echo '<a href="fixtures.php?url=' . $row['fixtures'] .'">Fikstür URL</a><br>';
+    echo '<a href="players.php?url=' . $row['players'] .'">Oyuncular URL</a>';
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
 }
 ?>
 
